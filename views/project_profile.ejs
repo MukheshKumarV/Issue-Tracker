@@ -1,0 +1,65 @@
+<html>
+    <!-- This is an ejs file , a view template used to display infromation sent by the models to js ad js this file -->
+    <head>
+        <title>
+            <%= locals.title%>
+        </title>
+        <!-- the local css -->
+        <link rel="stylesheet" href="/css/home.css">
+        <!-- the Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!-- Title using bootstrap class-->
+        <figure class="text-center">
+            <h1 class="display-1 title ">Issue Tracker</h1>
+            <figcaption class="blockquote-footer">
+                Built Using <cite title="Source Title">Node Js and EJS</cite>
+            </figcaption>
+        </figure>        
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="btn btn-primary active" href="/create-issue-form" role="button">Create Issue</a>
+                <form class="d-flex" role="search" id="search" >
+                    <input class="form-control me-2" type="search" name="Search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="row g-5">
+            <div class="col-md-8">
+                <article class="blog-post">
+                    <h2 class="blog-post-title mb-1"><%= profile_project.projectName%></h2>
+                    <p class="blog-post-meta"> by <%= profile_project.projectAuthor%></p>
+                    <p><%= profile_project.projectDescription%>.</p>
+                    <h4 class="blog-post-title mb-1">List of Existing Issues:</h4>
+                    <ul><% for (let i of issue_list) { %>
+                            <% if (String(i.projectName._id)==String(profile_project._id)){ %>
+                                <li>
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1"><%= i.issuetitle %></h5>
+                                            <span class="badge bg-primary rounded-pill">
+                                                <b><h5><%= i.issueLabel %></h5></b>
+                                            </span>
+                                        </div>
+                                        <p class="mb-1"><%= i.issueDescription %>.</p>
+                                        <small class="text-muted">
+                                            <%= i.issueAuthor %>.
+                                        </small>
+                                        <small class="text-muted">
+                                            <%= i.projectName.projectName %>.
+                                        </small>
+                                        </a>
+                                    </div>
+                                </li>
+                            <% } %>
+                        <% } %></ul>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

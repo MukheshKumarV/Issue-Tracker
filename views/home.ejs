@@ -1,0 +1,43 @@
+<html>
+    <!-- This is an ejs file , a view template used to display infromation sent by the models to js ad js this file -->
+
+    <head>
+        <title>
+            <%= locals.title%>
+        </title>
+        <!-- the local css -->
+        <link rel="stylesheet" href="/css/home.css">
+        <!-- the Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!-- Title using bootstrap class-->
+        <figure class="text-center">
+            <h1 class="display-1 title ">Issue Tracker</h1>
+            <figcaption class="blockquote-footer">
+                Built Using  <cite title="Source Title">Node Js and EJS</cite>
+            </figcaption>
+        </figure>
+        </b><br>
+        <a class="btn btn-primary" href="/create-project-form" role="button">Create Project</a>
+        <br><br>
+        <h1 class="display-5">List of the Existing Projects:</h1>
+        <br>
+        <% for (let i of project_list) { %> 
+            <div class="list-group">
+                <a href="/project/<%= i._id%>" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= i.projectName %></h5>
+                    <span class="badge bg-primary rounded-pill">
+                        <b><h5><%= i.projectLabel %></h5></b>
+                    </span>
+                </div>
+                <p class="mb-1"><%= i.projectDescription %>.</p>
+                <small class="text-muted"><%= i.projectAuthor %>.</small>
+                </a>
+            </div>
+        <% } %>
+    </body>
+</html>

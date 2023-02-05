@@ -1,0 +1,52 @@
+<html>
+<!-- This is an ejs file , a view template used to display infromation sent by the models to js ad js this file -->
+
+<head>
+    <title>
+        Issue Tracker
+    </title>
+    <!-- the local css -->
+    <link rel="stylesheet" href="/css/home.css">
+    <!-- the Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+        <!-- Title using bootstrap class-->
+        <figure class="text-center">
+            <h1 class="display-1 title ">Issue Tracker</h1>
+            <figcaption class="blockquote-footer">
+                Built Using <cite title="Source Title">Node Js and EJS</cite>
+            </figcaption>
+        </figure>
+    <div class="container mt-3">
+        <h2>Add Project</h2>
+        <form id="addForm" action="/create-project" method="POST">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input type="text" name="name" placeholder="Name of the Project" class="form-control" id="item">
+                </div>
+                <br><br><br>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input type="text" name="description" placeholder="Project Description" class="form-control" id="item">
+                </div>
+                <br><br><br>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input type="text" name="author" placeholder="Author" class="form-control" id="item">
+                </div>
+                <br><br><br>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input type="text" name="label" placeholder="Label" class="form-control" id="item">
+                </div>
+                <br><br><br>
+                <br><br>
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <button type="submit" class="btn btn-success">Add Project</button>
+                </div>                
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
