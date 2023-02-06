@@ -4,7 +4,7 @@ const express = require('express');
 //path of the file stored locally is obatined
 const path = require('path');
 //a port is stored in a variable
-const port = 80
+const port = 8000
 //express is assigned to a constant variable
 const app = express();
 //The express.urlencoded() function is a built-in middleware function in Express. 
